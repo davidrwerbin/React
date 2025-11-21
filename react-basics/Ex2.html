@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ex2</title>
+    <style>
+      .login-button{
+        background-color: rgb(0, 123, 255);
+        color: white; 
+        border: 0px; 
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin-top: 10px;;
+      }
+      .sign-up-button{
+        background-color: rgb(0, 123, 255);
+        color: white; 
+        border: 0px; 
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin-top: 10px;
+        margin-left: 5px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!-- In react first we write html elements and then later configure it in JS -->
+    <div class="js-container"></div>
+
+      <!-- below is the code loaded for react (external library) v3.2.1-->
+      <!-- Websites: React & ReactDom-->
+
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react-dom.js"></script>
+
+      <!-- Another external library (JS compiler translates JSX (js with html) for the browser *In react we use JSX*) -->
+    <script src="https://unpkg.com/supersimpledev@3.2.1/babel.js"></script>
+
+      <!-- Setting up React -->
+    <script type="text/babel">
+       function LoginForm(){
+
+          const [showPassword, setShowPassword] = React.useState(false);
+          function SwitchShowPassword(){
+            showPassword 
+              ? setShowPassword(false) 
+              : setShowPassword(true);
+          }
+          return(
+            <>
+              <div><input placeholder = "Email" ></input></div>
+              <div>
+                <input 
+                  placeholder = "Password" 
+                  type = {!showPassword && "password"}>
+                </input>
+                <button 
+                  onClick = {SwitchShowPassword}>
+                  Show password
+                </button>
+              </div>
+              <button className = "login-button">Login</button>
+              <button className = "sign-up-button">Sign up</button>
+              
+            </>
+          );
+          
+       }
+       function App(){
+          return(
+            <>
+              <p>Hello, welcome to my website</p>
+              <LoginForm/>
+            </>
+          );
+       }
+        // This line finds the HTML element with the class 'js-container'.
+        // We'll use this element as the place to show our React content.
+        const container = document.querySelector('.js-container');
+        // Renders the string 'Welcome to SuperSimpleDev React Course' into the specified container using React's root API
+        ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  
+  </body>
+</html> 

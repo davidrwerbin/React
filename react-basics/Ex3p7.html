@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ex3p7</title>
+  </head>
+  <body>
+    <!-- In react first we write html elements and then later configure it in JS -->
+    <div class="js-container"></div>
+
+      <!-- below is the code loaded for react (external library) v3.2.1-->
+      <!-- Websites: React & ReactDom-->
+
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react-dom.js"></script>
+
+      <!-- Another external library (JS compiler translates JSX (js with html) for the browser *In react we use JSX*) -->
+    <script src="https://unpkg.com/supersimpledev@3.2.1/babel.js"></script>
+
+      <!-- Setting up React -->
+    <script type="text/babel">
+
+        function App(){
+          const [inputText, setInputText] = React.useState("");
+          
+          function saveInputText(event){
+            setInputText(event.target.value);
+          }
+          function resetInput(){
+            setInputText("");
+          }
+          function displayExample(){
+            setInputText('Alice');
+          }
+          return(
+            <>
+                <input
+                  placeholder = "Introduce your text" 
+                  size = "40"
+                  onChange = {saveInputText}
+                  value = {inputText}
+                ></input>
+                <div>
+                  <button
+                    onClick = {resetInput}>
+                    Reset
+                  </button>
+                  <button
+                    onClick = {displayExample}>
+                    Example 
+                  </button>
+                </div>
+                <p>{inputText}</p>
+            </>
+          );
+        }
+        
+        // This line finds the HTML element with the class 'js-container'.
+        // We'll use this element as the place to show our React content.
+        const container = document.querySelector('.js-container');
+        // Renders the string 'Welcome to SuperSimpleDev React Course' into the specified container using React's root API
+        ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  
+  </body>
+</html> 

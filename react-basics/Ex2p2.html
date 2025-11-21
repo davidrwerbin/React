@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ex2p2</title>
+  </head>
+  <body>
+    <!-- In react first we write html elements and then later configure it in JS -->
+    <div class="js-container"></div>
+
+      <!-- below is the code loaded for react (external library) v3.2.1-->
+      <!-- Websites: React & ReactDom-->
+
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@3.2.1/react-dom.js"></script>
+
+      <!-- Another external library (JS compiler translates JSX (js with html) for the browser *In react we use JSX*) -->
+    <script src="https://unpkg.com/supersimpledev@3.2.1/babel.js"></script>
+
+      <!-- Setting up React -->
+    <script type="text/babel">
+        function ProductDetails({name, price, discountPrice}){
+          //const name = props.name;
+          //const price = props.price;
+          /*
+          if(!discountPrice)
+            return(
+            <>
+              <p>{name}</p>
+              <p>Price: {price}$</p>
+            </>
+            );
+          else
+            return(
+            <>
+              <p>{name}</p>
+              <del><p>Price: {price}$</p></del>
+              {discountPrice && (
+                <p>Discount Price: {discountPrice}$</p>
+              )}
+              <button>Add to Cart</button>
+            </>
+          );
+          */
+  
+          return(
+            <>
+              <p>{name}</p>
+              {!discountPrice &&(
+                <p>Price: {price}$</p>
+              )}
+              {discountPrice && (
+                <>
+                  <p><del>Price: {price}$</del></p>
+                  <p>Discount Price: {discountPrice}$</p>
+                </>
+              )}
+              <button>Add to Cart</button>
+            </>
+          )
+        }
+        
+        function App(){
+          return(
+            <> 
+              <ProductDetails 
+                name = "Cotton Socks" 
+                price = "10.90" 
+                discountPrice = "5"
+                />
+              <ProductDetails 
+                name = "Tennis ball" 
+                price = "6"
+              />
+              <ProductDetails
+                name = "Plain T- shirt" 
+                price = "5"
+              />
+              <ProductDetails
+                name = "nabo" 
+                price = "5"
+                discountPrice = "0"
+
+              />
+            </>
+          );
+         
+        }
+  
+        // This line finds the HTML element with the class 'js-container'.
+        // We'll use this element as the place to show our React content.
+        const container = document.querySelector('.js-container');
+        // Renders the string 'Welcome to SuperSimpleDev React Course' into the specified container using React's root API
+        ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  
+  </body>
+</html> 
