@@ -1,5 +1,6 @@
 import { HomePage } from './pages/HomePage'
-import { Checkout } from './pages/CheckoutPage';
+import { Checkout } from './pages/CheckoutPage'
+import { Orders } from './pages/OrdersPage'
 import {Routes, Route} from 'react-router'
 import './App.css'
 
@@ -8,6 +9,7 @@ function App() {
     <Routes>
      <Route index element={<HomePage/>}/>
      <Route path="checkout" element={<Checkout/>}/>
+     <Route path="orders" element={<Orders/>}/>
     </Routes>
   );
 }
