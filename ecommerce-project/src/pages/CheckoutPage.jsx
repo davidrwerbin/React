@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import "./CheckoutPage.css";
 import "./checkout-header.css";
 
-export function Checkout({ cart }) {
+export function CheckoutPage({ cart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
