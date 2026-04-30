@@ -39,7 +39,7 @@ export function CheckoutPage({ cart, loadCart }) {
             loadCart={loadCart}
           ></OrderSummary>
 
-          <PaymentSummary paymentSummary={paymentSummary}></PaymentSummary>
+          <PaymentSummary paymentSummary={paymentSummary} loadCart={loadCart}></PaymentSummary>
         </div>
       </div>
     </>
