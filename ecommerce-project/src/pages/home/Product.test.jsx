@@ -7,7 +7,6 @@ import axios from "axios";
 vi.mock("axios");
 
 describe("Product component", () => {
-    
   let product;
   let loadCart;
 
@@ -23,7 +22,7 @@ describe("Product component", () => {
       priceCents: 1090,
       keywords: ["socks", "sports", "apparel"],
     };
-
+ 
     loadCart = vi.fn();
   });
 
@@ -47,6 +46,7 @@ describe("Product component", () => {
     );
 
     expect(screen.getByText("87")).toBeInTheDocument();
+
   });
 
   it("adds a product to the cart", async () => {
