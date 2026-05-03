@@ -12,7 +12,10 @@ export default defineConfig({
       '/images' : {
         target: 'http://localhost:3000'
       }
-      //(server proxy configuration)
+      //(server prxoxy configuration)
     }
+  },
+  build: {
+    outDir: '../ecommerce-backend/dist'
   }
 })
